@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Convite da Milena</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="cloud" style="width:120px;height:34px;top:12%;animation-delay:-8s"></div>
+<div class="cloud" style="width:90px;height:26px;top:32%;animation-delay:-24s;animation-duration:55s"></div>
+<div class="cloud" style="width:140px;height:38px;top:58%;animation-delay:-35s;animation-duration:48s"></div>
+<div class="ground"></div>
+<button type="button" id="gate" aria-label="Toque para entrar no convite"><span class="gc">👑</span><span class="gt">Convite da<br>Super Princesa<br>Milena</span><span class="gb">Toque para entrar</span></button>
+<div class="coins" aria-live="polite"><img class="cn" id="cimg" alt="moedas"> <span id="n">0</span></div>
+
+<audio id="aud" preload="auto" src="assets/audio/trilha-principal.mp3"></audio>
+<audio id="coin" preload="auto" src="assets/audio/moeda.mp3"></audio>
+<audio id="crown" preload="auto" src="assets/audio/coroa.mp3"></audio>
+<audio id="after" preload="auto" src="assets/audio/trilha-final.mp3"></audio>
+<audio id="yoshi" preload="auto" src="assets/audio/yoshi.mp3"></audio>
+<audio id="vit" preload="auto" src="assets/audio/vitoria.mp3"></audio>
+<main>
+  <h1><small>SUPER PRINCESA</small>Milena</h1>
+  <div class="age">7 ANOS</div>
+  <div class="chars" id="chars"><img class="ch" alt="Peach" src="assets/img/peach.jpg"><img class="ch" alt="Mario" src="assets/img/mario.jpg"><img class="ch" alt="Luigi" src="assets/img/luigi.jpg"><img class="ch" alt="Toad" src="assets/img/toad.jpg"><img class="ch" alt="Yoshi" src="assets/img/yoshi.jpg"><img class="ch" alt="Bowser" src="assets/img/bowser.jpg"></div>
+  <p class="sub" id="sub">Você recebeu um convite real!</p>
+
+  <button id="env" aria-label="Abrir o convite">
+    <span class="body"></span><span class="flap"></span>
+    <span class="seal">👑</span>
+    <span class="hint">Toque na coroa para abrir</span>
+  </button>
+
+  <section id="inv" aria-label="Convite">
+    <div class="card">
+      <img class="scene" alt="Mundo da Princesa" src="assets/img/mundo-princesa.jpg" style="margin:0 0 14px"><span class="crown" aria-hidden="true">👑</span>
+      <p>A Princesa Milena está completando 7 anos e convida você para uma aventura cheia de moedas, estrelas e diversão!</p>
+      <p><strong>Bata nos blocos para descobrir a fase secreta:</strong></p>
+      <div class="blocks">
+        <button class="blk" data-m="Anote na agenda: dia 20 de novembro!"><i class="q"><img alt="Bloco surpresa" src="assets/img/bloco-surpresa.jpg"></i><i class="a"><b>Data</b><span>20/11</span></i></button>
+        <button class="blk" data-m="Chegue na hora para não perder a largada!"><i class="q"><img alt="Bloco surpresa" src="assets/img/bloco-surpresa.jpg"></i><i class="a"><b>Horário</b><span>20h</span></i></button>
+        <button class="blk" data-m="O castelo fica no Le poê. Toque em “Ver no mapa”."><i class="q"><img alt="Bloco surpresa" src="assets/img/bloco-surpresa.jpg"></i><i class="a"><b>Local</b><span>Le poê</span></i></button>
+      </div>
+      <p class="msg" id="msg">Cada bloco vale uma moeda!</p>
+    </div>
+    <img class="scene k" alt="Corrida no castelo" src="assets/img/corrida-castelo.jpg">
+    <div class="btns">
+      <button class="btn" id="yes">Clique para confirmar presença <span class="hand" aria-hidden="true">👆</span></button>
+      <div class="rsvp" id="rsvp">
+        <label for="nm">Seu nome</label><input type="text" id="nm" autocomplete="name" placeholder="Quem está confirmando?">
+        <label>Quantos adultos?</label><div class="step"><button type="button" data-t="ad" data-d="-1" aria-label="Menos adultos">−</button><output id="ad">1</output><button type="button" data-t="ad" data-d="1" aria-label="Mais adultos">+</button></div>
+        <label>Quantas crianças?</label><div class="step"><button type="button" data-t="cr" data-d="-1" aria-label="Menos crianças">−</button><output id="cr">0</output><button type="button" data-t="cr" data-d="1" aria-label="Mais crianças">+</button></div>
+        <label for="ages">Idade das crianças</label><input type="text" id="ages" placeholder="Ex.: 5 e 8 anos">
+        <a class="btn ok" id="send" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=5531999651508" style="margin-top:16px;text-align:center">Enviar no WhatsApp 💬</a>
+        <p class="msg" style="margin-top:12px;font-weight:700;color:var(--ink)">Esta é a mensagem que será enviada. Se o WhatsApp abrir sem o texto, copie e cole:</p>
+        <p class="msg" id="prev" style="white-space:pre-wrap;background:#fff;border:3px dashed var(--pink);border-radius:12px;padding:10px;color:#3a0b28;text-align:left"></p>
+        <button type="button" class="btn alt" id="cp" style="margin-top:8px">Copiar mensagem</button>
+        <p class="msg" id="err" style="color:#b00020;font-weight:700"></p>
+      </div>
+      <a class="btn alt" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Le+po%C3%AA">Clique para ver localização <span class="hand" aria-hidden="true">👆</span></a>
+      <a class="btn alt" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anivers%C3%A1rio+da+Milena&dates=20261120T200000/20261121T000000&location=Le+po%C3%AA&details=Convite+da+Super+Princesa+Milena">Clique para salvar na agenda <span class="hand" aria-hidden="true">👆</span></a>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
