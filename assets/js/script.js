@@ -64,16 +64,12 @@
     return 'Oi! Aqui é '+nm+'. Confirmo presença no aniversário de 7 anos da Milena (20/11, 20h, Le poê).\nAdultos: '+v.ad+'\nCrianças: '+v.cr+(v.cr>0?'\nIdade das crianças: '+(ag||'(informe a idade)'):'')}
   function sync(){var t=msgText();snd.href='https://wa.me/'+WA+'?text='+encodeURIComponent(t);prev.textContent=t}
   rs.addEventListener('input',sync);rs.addEventListener('click',function(){setTimeout(sync,0)});sync();
-  var ready=false,waiting=false;
   snd.addEventListener('click',function(e){
     var er=document.getElementById('err');sync();
     if(!document.getElementById('nm').value.trim()){e.preventDefault();er.textContent='Escreva seu nome para confirmar.';return}
     if(v.cr>0&&!document.getElementById('ages').value.trim()){e.preventDefault();er.textContent='Informe a idade das crianças.';return}
-    if(ready)return;
-    e.preventDefault();if(waiting)return;waiting=true;er.textContent='';add(e.clientX,e.clientY);confetti();
+    er.textContent='';add(e.clientX,e.clientY);confetti();
     try{var vv=document.getElementById('vit');vv.currentTime=0;var vp=vv.play();if(vp&&vp.catch)vp.catch(function(){})}catch(q){}
-    var lab=snd.textContent;snd.textContent='Enviando... 🎉';
-    setTimeout(function(){ready=true;snd.textContent='Toque para abrir o WhatsApp 💬';snd.click()},2600);
   });
   document.getElementById('cp').addEventListener('click',function(){
     var b=this,t=msgText();
